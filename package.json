@@ -1,0 +1,35 @@
+{
+  "name": "sitlab-test-tracker",
+  "version": "0.1.0",
+  "description": "My Chrome Extension",
+  "private": true,
+  "scripts": {
+    "watch": "webpack --mode=development --watch --config config/webpack.config.js",
+    "build": "webpack --mode=production --config config/webpack.config.js",
+    "pack": "node pack.js",
+    "repack": "npm run build && npm run pack",
+    "format": "prettier --write --ignore-unknown \"{config,public,src}/**/*.{html,css,js,ts,json}\""
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.246",
+    "adm-zip": "^0.5.10",
+    "copy-webpack-plugin": "^10.2.4",
+    "css-loader": "^6.8.1",
+    "dotenv-webpack": "^8.0.1",
+    "eslint-config-prettier": "^8.8.0",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "prettier": "^2.8.8",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-merge": "^5.9.0"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.0.41-1",
+    "bootstrap": "^5.3.0",
+    "firebase": "^9.23.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

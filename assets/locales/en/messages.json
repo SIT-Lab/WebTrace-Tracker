@@ -1,0 +1,11 @@
+{
+    "appName": {
+        "message": "sitlab_test_tracker"
+    },
+    "appShortName": {
+        "message": "sitlab_test_tracker"
+    },
+    "appDescription": {
+        "message": "record the usability test log"
+    }
+}

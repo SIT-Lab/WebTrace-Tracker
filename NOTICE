@@ -1,0 +1,105 @@
+Apache License
+Version 2.0, January 2004
+http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+...
+
+This project includes the following third-party libraries that are licensed under the Apache License 2.0:
+
+1. **firebase**
+   - Firebase JavaScript SDK
+   - Licensed under the Apache License 2.0
+   - https://www.npmjs.com/package/firebase
+
+2. **typescript**
+   - TypeScript is a typed superset of JavaScript
+   - Licensed under the Apache License 2.0
+   - https://www.npmjs.com/package/typescript
+
+...
+
+This project also includes libraries licensed under the MIT license:
+
+1. **adm-zip**
+   - JavaScript implementation of zip for nodejs
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/adm-zip
+
+2. **copy-webpack-plugin**
+   - Copy files and directories with webpack
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/copy-webpack-plugin
+
+3. **css-loader**
+   - CSS loader for webpack
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/css-loader
+
+4. **dotenv-webpack**
+   - A secure way to use dotenv in webpack
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/dotenv-webpack
+
+5. **eslint-config-prettier**
+   - Turns off all rules that are unnecessary or might conflict with Prettier
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/eslint-config-prettier
+
+6. **file-loader**
+   - File loader module for webpack
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/file-loader
+
+7. **mini-css-extract-plugin**
+   - Extracts CSS into separate files
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/mini-css-extract-plugin
+
+8. **prettier**
+   - Code formatter
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/prettier
+
+9. **ts-loader**
+   - TypeScript loader for webpack
+   - Licensed under the MIT License
+   - https://www.npmjs.com/package/ts-loader
+
+10. **webpack**
+    - Module and asset bundler
+    - Licensed under the MIT License
+    - https://www.npmjs.com/package/webpack
+
+11. **webpack-cli**
+    - CLI for webpack
+    - Licensed under the MIT License
+    - https://www.npmjs.com/package/webpack-cli
+
+12. **webpack-merge**
+    - Simplify the creation of webpack configuration
+    - Licensed under the MIT License
+    - https://www.npmjs.com/package/webpack-merge
+
+13. **@truffle/hdwallet-provider**
+    - Ethereum JavaScript provider
+    - Licensed under the MIT License
+    - https://www.npmjs.com/package/@truffle/hdwallet-provider
+
+14. **bootstrap**
+    - Front-end component library
+    - Licensed under the MIT License
+    - https://www.npmjs.com/package/bootstrap
+
+15. **xmlhttprequest**
+    - XMLHttpRequest for node
+    - Licensed under the MIT License
+    - https://www.npmjs.com/package/xmlhttprequest
+
+16. **@types/chrome**
+   - Type definitions for the Chrome extension API
+   - Licensed under the Apache MIT License
+   - https://www.npmjs.com/package/@types/chrome
+
+For the full text of the Apache License 2.0, see the LICENSE file included in this repository.
