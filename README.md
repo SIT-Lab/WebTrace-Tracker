@@ -8,7 +8,7 @@
 
 Sitlab Test Tracker는 전북대학교 소프트웨어 인터랙션 연구실에서 개발한 웹 애플리케이션 인터랙션 추적 도구입니다. 이 도구는 크롬 확장 프로그램 형태로 제공되며, 사용자의 웹 애플리케이션 인터랙션을 원격으로 추적합니다. 추적되는 데이터에는 접속한 URL, Task 수행시간, 클릭, 스크롤, 키보드 입력 등이 있으며, 이 데이터는 파이어베이스에 기록됩니다. 수집된 데이터는 웹 애플리케이션의 사용성을 분석하고 개선하는 데 사용될 수 있습니다.
 
-## 팀원
+## 👨🏼‍💻팀원
 | **편지승**  | **허민**    |
 |:-----------:|:-----------:|
 | <img src="https://avatars.githubusercontent.com/vuswltmd" height="130" width="130"></img> | <img src="https://avatars.githubusercontent.com/i-mymeminn" height="130" width="130"></img> |
@@ -18,13 +18,13 @@ Sitlab Test Tracker는 전북대학교 소프트웨어 인터랙션 연구실에
 ## 시스템 아키텍쳐
 <작성예정>
 
-## 사용방법
+## 💿사용방법
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/f7aff353-c6c2-4fc5-9eaf-a79e7d975416" width="240" alt="image1" style="margin-right: 15px;"/>
-  <img src="https://github.com/user-attachments/assets/77db0423-854e-4f01-affa-f5b3d8de5d13" width="240" alt="image2" style="margin-right: 15px;"/>
-  <img src="https://github.com/user-attachments/assets/eeb0df6c-3bf1-4e53-af12-37beb2843553" width="240" alt="image3" style="margin-right: 15px;"/>
-  <img src="https://github.com/user-attachments/assets/bede501b-0a3d-456d-8f3a-5eb6cf8e53a3" width="240" alt="image4"/>
+  <img src="https://github.com/user-attachments/assets/f7aff353-c6c2-4fc5-9eaf-a79e7d975416" width="220" alt="image1" style="margin-right: 15px;"/>
+  <img src="https://github.com/user-attachments/assets/77db0423-854e-4f01-affa-f5b3d8de5d13" width="220" alt="image2" style="margin-right: 15px;"/>
+  <img src="https://github.com/user-attachments/assets/eeb0df6c-3bf1-4e53-af12-37beb2843553" width="220" alt="image3" style="margin-right: 15px;"/>
+  <img src="https://github.com/user-attachments/assets/bede501b-0a3d-456d-8f3a-5eb6cf8e53a3" width="220" alt="image4"/>
 </p>
 
 ### A. Task 정보 입력
@@ -49,7 +49,7 @@ Task는 종료됩니다.
 - Quit: Task의 수행 완료 여부와 상관없이 Task를 종료하고 추적된 데이터를 폐기하려는 경우 클릭합니다.
 
 
-## 설치방법
+## ⚙️설치방법
 
 1. **코드 클론:**
    - 먼저, GitHub에서 이 프로젝트의 코드를 클론합니다.
@@ -87,8 +87,24 @@ Task는 종료됩니다.
     - build 폴더를 선택하여 업로드합니다
     - 확장 프로그램이 크롬에 설치되고 사용 가능합니다.
 
-## 라이센스
+## 📜License
 
-이 프로젝트는 Apache License 2.0 라이센스를 따릅니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하십시오.
+This project is licensed under the Apache License 2.0. For more details, please refer to the  [LICENSE](LICENSE) file.
 
-이 프로젝트에는 다음과 같은 Apache License 2.0 라이센스를 따르는 서드파티 라이브러리가 포함되어 있습니다. 자세한 내용은 [NOTICE](NOTICE) 파일을 참조하십시오.
+This project includes third-party libraries that are licensed under the Apache License 2.0. For more details, please refer to the [NOTICE](NOTICE) file.
+```
+   Copyright [2024] [Division of Computer Science and Engineering,
+   Jeonbuk National University SIT Lab]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+```
