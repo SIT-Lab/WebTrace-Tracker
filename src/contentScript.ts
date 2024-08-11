@@ -10,7 +10,7 @@ import { SessionState } from './enums/sessionState';
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 
   if (request.action === 'reInitiateListeners') {
-    if (request.sessionState === SessionState.Start || request.sessionState === SessionState.Continue) {
+    if (request.sessionState === SessionState.Start || request.sessionState === SessionState.Resume) {
       "URL이 변경될 때 SessionState에 따라 추적 여부를 결정합니다: 현재 추적 중"
       toggleEventListeners(true);
     }
@@ -34,8 +34,8 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     case 'pauseSession':    // 일시 중지 메시지 수신
       await pauseSession(true);  // 일시 중지 기능 실행
       break;
-    case 'continueSession': //continue 메시지 수신
-      await pauseSession(false);  // continue 기능 실행
+    case 'resumeSession': //Resume 메시지 수신
+      await pauseSession(false);  // Resume 기능 실행
       break;
     default:
       break;
@@ -116,8 +116,8 @@ async function endSession(isFinished: boolean, isSave: boolean) {
  * @param {boolean} isPause - 세션을 일시 중지할지 여부를 나타내는 불리언 값.
  */
 async function pauseSession(isPause: boolean) {
-  // isPause가 true이면 "pauseSession", false이면 "continueSession" 액션 설정
-  const action = isPause ? "pauseSession" : "continueSession";
+  // isPause가 true이면 "pauseSession", false이면 "resumeSession" 액션 설정
+  const action = isPause ? "pauseSession" : "resumeSession";
   console.log(`Session ${action}`);
 
   // 백그라운드 스크립트에 메시지 전송
