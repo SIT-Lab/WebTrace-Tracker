@@ -201,7 +201,7 @@ const toQuit = (main: Element) => {
     });
   });
 
-  // Pause/Continue 버튼 이벤트 리스너
+  // Pause or Resume 버튼 이벤트 리스너
   pause?.addEventListener('click', function (event) {
     chrome.storage.local.get(['isPaused'], function (result) {
       let isPaused = result.isPaused ?? false; // 기본값 false 설정
@@ -211,11 +211,11 @@ const toQuit = (main: Element) => {
 
       // 새로운 상태 저장 및 UI 업데이트
       chrome.storage.local.set({ isPaused: isPaused }, function () {
-        //정지버튼 텍스트 변경 ex) Pause -> Continue
+        //정지버튼 텍스트 변경 ex) Pause -> Resume
         updatePauseButtonText(isPaused);
 
         //action 상태 변경
-        const action = isPaused ? 'pauseSession' : 'continueSession';
+        const action = isPaused ? 'pauseSession' : 'resumeSession';
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
           if (tabs[0]?.id !== undefined) {
             chrome.tabs.sendMessage(tabs[0].id, { action: action });
@@ -257,7 +257,7 @@ const toQuit = (main: Element) => {
 function updatePauseButtonText(isPaused: boolean): void {
   const pauseButton = document.getElementById('pause');
   if (!pauseButton) return; // 버튼이 없으면 함수 종료
-  pauseButton.textContent = isPaused ? 'Continue' : 'Pause';
+  pauseButton.textContent = isPaused ? 'Resume' : 'Pause';
 }
 
 /**

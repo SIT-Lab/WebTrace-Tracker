@@ -23,9 +23,9 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     console.log("세션을 일시 정지합니다.");
     sessionState = SessionState.Pause;
 
-  } else if (message.action === "continueSession") {
+  } else if (message.action === "resumeSession") {
     console.log("세션을 계속합니다.");
-    sessionState = SessionState.Continue;
+    sessionState = SessionState.Resume;
   }
 });
 
