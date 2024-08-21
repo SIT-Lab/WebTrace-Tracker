@@ -280,19 +280,19 @@ const getUserInfoElement = () => {
     <h5 class="card-title" style="font-weight: bold;">Please enter the correct test in-formation.</h5>
   </div>
   <div class="inputbox form-group">
-    <label for="user-id">User ID</label>
+    <label for="user-id" style="margin-bottom: 0;">User ID</label>
     <input type="text" class="form-control" id="user-id" placeholder="Enter user ID">
   </div>
   <div class="inputbox form-group">
-    <label for="Age-id">Age</label>
+    <label for="Age-id" style="margin-bottom: 0;">Age</label>
     <input type="text" class="form-control" id="Age-id" placeholder="Enter your AGE">
   </div>
   <div class="inputbox form-group">
-    <label for="Gender-id">Gender</label>
+    <label for="Gender-id" style="margin-bottom: 0;">Gender</label>
     <input type="text" class="form-control" id="Gender-id" placeholder="Enter your GENDER">
   </div>
   <div class="inputbox form-group">
-    <label for="Country-id">Country</label>
+    <label for="Country-id" style="margin-bottom: 0;">Country</label>
     <input type="text" class="form-control" id="Country-id" placeholder="Enter your COUNTRY">
   </div>
   <button id="InfoSubmit" type="button" class="btn btn-primary">Submit</button>
@@ -313,15 +313,15 @@ const getUserLoginElement = () => {
     </div>
   <form>
     <div class="inputbox form-group">
-      <label for="project-id">Project ID</label>
+      <label for="project-id" style="margin-bottom: 0;">Project ID</label>
       <input type="text" class="form-control" id="project-id" placeholder="Enter project ID">
     </div>
     <div class="inputbox form-group">
-      <label for="test-id">Test ID</label>
+      <label for="test-id" style="margin-bottom: 0;">Test ID</label>
       <input type="text" class="form-control" id="test-id" placeholder="Enter test ID">
     </div>
     <div class="inputbox form-group">
-      <label for="task-id">Task ID</label>
+      <label for="task-id" style="margin-bottom: 0;">Task ID</label>
       <input type="text" class="form-control" id="task-id" placeholder="Enter task ID">
     </div>
     <button id="submit" type="button" class="btn btn-primary">Submit</button>
@@ -353,17 +353,18 @@ const toQuitElement = () => {
   return `
   <h6 class="card-text" style="color: blue;">Testing in Progress...</h6>
   <h5 class="card-title" style="font-weight: bold;">Are you sure you want to quit the usability test?</h5>
-
-  <p class="card-text pt-4">Finish the test</p>
+  <p class="card-text pt-4" style="margin-bottom: 0;">Finish the test</p>
   <p><button id="finish" class="btn btn-primary">Finish</button></p>
 
-  <p class="card-text">Give up the test</p>
+  <p class="card-text" style="margin-bottom: 0;">Give up the test</p>
   <p><button id="giveup" class="btn btn-primary">Give Up</button></p>
 
-  <p class="card-text">Pauses the test</p>
+
+  <p class="card-text" style="margin-bottom: 0;">Pauses the test</p>
   <p><button id="pause" class="btn btn-primary">Pause</button></p>
 
-  <p class="card-text">Quits the test <span style="color: red;">without saving the log</span></p>
+ 
+  <p class="card-text" style="margin-bottom: 0;">Quits the test <br><span style="color: red;">without saving the log</span></p>
   <p><button id="quit" class="btn btn-primary">Quit</button></p>
   `;
 };
