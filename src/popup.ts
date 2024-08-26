@@ -131,7 +131,7 @@ const toInputInfo = (main: Element) => {
     ) as HTMLInputElement;
     const genderInput = document.querySelector(
       '#Gender-id'
-    ) as HTMLInputElement;
+    ) as HTMLInputElement; 
     const countryInput = document.querySelector(
       '#Country-id'
     ) as HTMLInputElement;
@@ -354,18 +354,18 @@ const toQuitElement = () => {
   <h6 class="card-text" style="color: blue;">Testing in Progress...</h6>
   <h5 class="card-title" style="font-weight: bold;">Are you sure you want to quit the usability test?</h5>
   <p class="card-text pt-4" style="margin-bottom: 0;">Finish the test</p>
-  <p><button id="finish" class="btn btn-primary">Finish</button></p>
+  <p><button id="finish" class="btn btn-primary" style="width: 100%;">Finish</button></p>
 
   <p class="card-text" style="margin-bottom: 0;">Give up the test</p>
-  <p><button id="giveup" class="btn btn-primary">Give Up</button></p>
+  <p><button id="giveup" class="btn btn-primary" style="width: 100%;">Give Up</button></p>
 
 
   <p class="card-text" style="margin-bottom: 0;">Pauses the test</p>
-  <p><button id="pause" class="btn btn-primary">Pause</button></p>
+  <p><button id="pause" class="btn btn-primary" style="width: 100%;">Pause</button></p>
 
  
   <p class="card-text" style="margin-bottom: 0;">Quits the test <br><span style="color: red;">without saving the log</span></p>
-  <p><button id="quit" class="btn btn-primary">Quit</button></p>
+  <p><button id="quit" class="btn btn-primary" style="width: 100%;">Quit</button></p>
   `;
 };
 
