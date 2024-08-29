@@ -359,13 +359,11 @@ const toQuitElement = () => {
   <p class="card-text" style="margin-bottom: 0;">Give up the test</p>
   <p><button id="giveup" class="btn btn-primary" style="width: 100%;">Give Up</button></p>
 
+  <p class="card-text" style="margin-bottom: 0;">Quits the test <br><span style="color: red;">without saving the log</span></p>
+  <p><button id="quit" class="btn btn-primary" style="width: 100%;">Quit</button></p>
 
   <p class="card-text" style="margin-bottom: 0;">Pauses the test</p>
   <p><button id="pause" class="btn btn-primary" style="width: 100%;">Pause</button></p>
-
- 
-  <p class="card-text" style="margin-bottom: 0;">Quits the test <br><span style="color: red;">without saving the log</span></p>
-  <p><button id="quit" class="btn btn-primary" style="width: 100%;">Quit</button></p>
   `;
 };
 
