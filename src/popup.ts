@@ -257,7 +257,13 @@ const toQuit = (main: Element) => {
 function updatePauseButtonText(isPaused: boolean): void {
   const pauseButton = document.getElementById('pause');
   if (!pauseButton) return; // 버튼이 없으면 함수 종료
-  pauseButton.textContent = isPaused ? 'Resume' : 'Pause';
+  if (isPaused) {
+    pauseButton.textContent = 'Resume';
+    pauseButton.style.backgroundColor = 'green'
+  } else {
+    pauseButton.textContent = 'Pause';
+    pauseButton.style.backgroundColor = 'orange'
+  }
 }
 
 /**
@@ -351,19 +357,21 @@ const toStartElement = () => {
  */
 const toQuitElement = () => {
   return `
+
   <h6 class="card-text" style="color: blue;">Testing in Progress...</h6>
   <h5 class="card-title" style="font-weight: bold;">Are you sure you want to quit the usability test?</h5>
+
+  <p class="card-text" style="margin-bottom: 0;">Pause the test</p>
+  <p><button id="pause" class="btn btn-primary" style="width: 100%; background-color: orange; border: none;">Pause</button></p>
+
   <p class="card-text pt-4" style="margin-bottom: 0;">Finish the test</p>
   <p><button id="finish" class="btn btn-primary" style="width: 100%;">Finish</button></p>
 
   <p class="card-text" style="margin-bottom: 0;">Give up the test</p>
-  <p><button id="giveup" class="btn btn-primary" style="width: 100%;">Give Up</button></p>
+  <p><button id="giveup" class="btn btn-primary" style="width: 100%; margin-bottom: 0;"">Give Up</button></p>
 
-  <p class="card-text" style="margin-bottom: 0;">Quits the test <br><span style="color: red;">without saving the log</span></p>
+  <p class="card-text" style="margin-bottom: 0; font-size: 16px;">Quit: <span style="color: red;">Progress will be lost</span></p>
   <p><button id="quit" class="btn btn-primary" style="width: 100%;">Quit</button></p>
-
-  <p class="card-text" style="margin-bottom: 0;">Pauses the test</p>
-  <p><button id="pause" class="btn btn-primary" style="width: 100%;">Pause</button></p>
   `;
 };
 
