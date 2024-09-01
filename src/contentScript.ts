@@ -1,8 +1,8 @@
 import { LogData } from './interfaces/apiTypes';
-import { onWheel } from './event_tracking/wheelEventTracking';
-import { onKeyboard } from './event_tracking/keyboardEventTracking';
-import { onMouse } from './event_tracking/clickEventTracking';
-import { wheelClick } from './event_tracking/wheelClickEventTracking';
+import { onWheel } from './event_tracking/scrollTracking';
+import { onKeyboard } from './event_tracking/keyboardInputTracking';
+import { onMouse } from './event_tracking/clickTracking';
+import { wheelClick } from './event_tracking/wheelClickTracking';
 import { uploadBase64ToStorage } from './apiClient';
 import { SessionState } from './enums/sessionState';
 
@@ -44,13 +44,13 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
 
 //마우스 좌클릭
 const onMouseEvent = (e: MouseEvent) => {
-  onMouse('mouseLeftClick', e);
+  onMouse('left click', e);
 };
 
 //마우스 우클릭
 const onContextMenu = (e: MouseEvent) => {
   if ((e.button == 2)) {
-    onMouse('mouseRightClick', e);
+    onMouse('right click', e);
   }
 };
 
@@ -58,7 +58,7 @@ const onContextMenu = (e: MouseEvent) => {
 const onWheelClick = (e: MouseEvent) => {
   if ((e.button == 1)) {
     e.preventDefault(); // 기본 동작 방지
-    wheelClick('mouseWheelClick', e);
+    wheelClick('wheel click', e);
   }
 }
 
