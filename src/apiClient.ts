@@ -54,17 +54,17 @@ export const uploadBase64ToStorage = async (base64Data: string, fileName: string
 /**
  * 로그 데이터를 Firebase Firestore에서 가져오는 함수
  * @param {string} userId - 사용자 ID
- * @param {string} testId - 테스트 ID
+ * @param {string} taskSuiteId - task suite ID
  * @param {string} taskId - 태스크 ID
  * @returns {Promise<void>}
  */
 export const getLog = async (
   userId = 'cCYeFqNi5qU7bIdhbtGI',
-  testId = 'NVxzx3mo1KcwdVVd90yA',
+  taskSuiteId = 'NVxzx3mo1KcwdVVd90yA',
   taskId = 'ltAzJeOpJs0HYf9tdMsH'
 ) => {
   try {
-    const docRef = doc(db, `project/${userId}/test/${testId}/task/${taskId}`);
+    const docRef = doc(db, `project/${userId}/taskSuite/${taskSuiteId}/task/${taskId}`);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       console.log('Document data:', docSnap.data());
@@ -79,18 +79,18 @@ export const getLog = async (
 /**
  * 특정 문서가 Firestore에 존재하는지 확인하는 함수
  * @param {string} projectId - 프로젝트 ID
- * @param {string} testId - 테스트 ID
+ * @param {string} taskSuiteId - task suite ID
  * @param {string} taskId - 태스크 ID
  * @returns {Promise<boolean>}
  */
 export const isRefExists = async (
   projectId: string,
-  testId: string,
+  taskSuiteId: string,
   taskId: string
 ) => {
   const ref = await doc(
     db,
-    `project/${projectId}/test/${testId}/task/${taskId}`
+    `project/${projectId}/taskSuite/${taskSuiteId}/task/${taskId}`
   );
   const docSnap = await getDoc(ref);
 
@@ -101,13 +101,13 @@ export const isRefExists = async (
 /**
  * 특정 태스크의 문서 참조를 가져오는 함수
  * @param {string} projId - 프로젝트 ID
- * @param {string} testId - 테스트 ID
+ * @param {string} taskSuiteId - task suite ID
  * @param {string} taskId - 태스크 ID
  * @returns {Promise<DocumentReference | void>}
  */
-const getTaskRef = async (projId: string, testId: string, taskId: string) => {
+const getTaskRef = async (projId: string, taskSuiteId: string, taskId: string) => {
   try {
-    return doc(db, `project/${projId}/test/${testId}/task/${taskId}`);
+    return doc(db, `project/${projId}/taskSuite/${taskSuiteId}/task/${taskId}`);
   } catch (err) {
     console.log('setTaskRef error:' + err);
   }
@@ -133,18 +133,18 @@ function generateRandomId(length: number) {
  * 로그 데이터를 Firestore에 저장하는 함수
  * @param {LogArray} log - 로그 데이터 배열
  * @param {string} projectId - 프로젝트 ID
- * @param {string} testId - 테스트 ID
+ * @param {string} taskSuiteId - 태스크수트 ID
  * @param {string} taskId - 태스크 ID
  * @returns {Promise<void>}
  */
 export const setTask = async (
   log: LogArray,
   projectId: string,
-  testId: string,
+  taskSuiteId: string,
   taskId: string
 ) => {
   try {
-    const docRef = await getTaskRef(projectId, testId, taskId);
+    const docRef = await getTaskRef(projectId, taskSuiteId, taskId);
     // log.data를 시간 순으로 정렬
     const sortedLogData = log.data.sort((a, b) => {
       return a.time - b.time;
