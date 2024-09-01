@@ -16,11 +16,11 @@ export const extractEventInfo = (event: Event) => {
     const width = target.offsetWidth;
     const height = target.offsetHeight;
     const xpath = createUniqueXPath(target);
-    const hostname = window.location.hostname;
-    const pathname = window.location.pathname;
+    const hostName = window.location.hostname;
+    const pathName = window.location.pathname;
     const url = window.location.href;
     // const time = nowTime();
     const nodeName = target.nodeName;
 
-    return { x, y, target, width, height, xpath, hostname, pathname, url, nodeName };
+    return { x, y, target, width, height, xpath, hostName, pathName, url, nodeName };
 };
