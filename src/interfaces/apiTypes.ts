@@ -4,17 +4,17 @@ import { Timestamp } from 'firebase/firestore';
  * LogData 인터페이스: 개별 로그 항목의 속성을 정의
  */
 export interface LogData {
-  eventName: string;           // 이벤트 이름 (예: wheel, mouseLeftClick, mouseRightClick)
+  eventType: string;           // 이벤트 타입 (예: wheel, mouseLeftClick, mouseRightClick)
   nodeName: string;            // 노드 이름 (예: h2, div)
-  hostname: string;            // URL의 호스트 이름
-  pathname: string;            // URL의 경로 이름
+  hostName: string;            // URL의 호스트 이름
+  pathName: string;            // URL의 경로 이름
   url: string;                 // 전체 URL
   hash: string;                // 이벤트가 발생한 DOM 요소의 고유 해시 코드
   xpath: string;               // 이벤트가 발생한 DOM 요소의 XPath
 
   /* FIXME: 스크롤 up/down 위치 정보 */
-  wheelState?: string;         // 휠 상태 정보 ('WheelStart', 'WheelDuring', 'WheelEnd', undefined)
-  wheelDirection?: string;     // 스크롤 방향 정보
+  scrollState?: string;         // 휠 상태 정보 ('scroll start', 'scrolling', 'scroll end', undefined)
+  scrollDirection?: string;     // 스크롤 방향 정보
   x?: number;                  // DOM 요소의 X 좌표
   y?: number;                  // DOM 요소의 Y 좌표
   w: number;                   // 이벤트가 발생한 DOM 요소의 너비
@@ -25,11 +25,11 @@ export interface LogData {
    * 키보드의 상태에 대한 정보.
    * 이 상태는 키보드 이벤트의 시작, 진행 중, 종료 중 하나일 수 있음.
    * 가능한 값:
-   * - 'KeyboardStart': 키보드 이벤트가 시작됨을 나타냄.
-   * - 'KeyboardDuring': 키보드 이벤트가 진행 중임을 나타냄.
-   * - 'KeyboardEnd': 키보드 이벤트가 종료됨을 나타냄.
+   * - 'input start': 키보드 이벤트가 시작됨을 나타냄.
+   * - 'input ongoing': 키보드 이벤트가 진행 중임을 나타냄.
+   * - 'input end': 키보드 이벤트가 종료됨을 나타냄.
    */
-  KeyboardEventState?: string;
+  keyboardInputState?: string;
 
   /**
    * 키보드 이벤트의 유형을 나타냄.
@@ -39,7 +39,7 @@ export interface LogData {
    * - 'keyup': 키를 뗐을 때 발생하는 이벤트.
    * - 'keypress': 키를 누르는 동안 발생하는 이벤트.
    */
-  KeyboardEventType?: string;
+  keyboardInputType?: string;
 
   /**
    * 사용자가 누른 키에 대한 정보.
@@ -48,7 +48,7 @@ export interface LogData {
    * - 'a': 사용자가 'a' 키를 눌렀을 때.
    * - 'Enter': 사용자가 'Enter' 키를 눌렀을 때.
    */
-  KeyboardEventPressedKey?: string;
+  keyboardInputPressedKey?: string;
 
   /**
    * 키의 코드에 대한 상세한 정보.
@@ -58,7 +58,7 @@ export interface LogData {
    * - '65': 'A' 키의 키코드.
    * - '13': 'Enter' 키의 키코드.
    */
-  KeyboardEventKeyCode?: string;
+  keyboardInputKeyCode?: string;
 
   //스크린샷한 화면 이미지의 Firebase URL.
   imageUrl?: string;
@@ -91,9 +91,9 @@ export interface TaskData {
   title: string; // (write by owner)Title of Task
 }
 
-export interface TestData {
+export interface TaskSuiteData {
   id: string;
-  title?: string; // Title of Test
+  title?: string; // Title of Task Suite
 }
 
 export interface ProjectData {
