@@ -16,11 +16,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function clearTask(projectId: string, testId: string, taskId: string) {
+async function clearTask(projectId: string, taskSuiteId: string, taskId: string) {
   try {
     const docRef = await doc(
       db,
-      `project/${projectId}/test/${testId}/task/${taskId}`
+      `project/${projectId}/taskSuite/${taskSuiteId}/task/${taskId}`
     );
 
     if (docRef) {

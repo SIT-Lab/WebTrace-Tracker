@@ -5,18 +5,18 @@ import { captureScreenshot } from "../screenshot/screenshotUtils";
 
 /**
  * 로그 데이터를 생성하고 전송하는 함수
- * @param {string} eventName - 이벤트 이름
+ * @param {string} eventType - 이벤트 이름
  * @param {Event} event - 이벤트 객체
  * @param {boolean} isScreenshotRequired - 스크린샷 필요 여부
  * @param {any} time - 이벤트 발생 시간
  * @param {object} additionalData - 추가 데이터 (옵션)
  */
-export const logEvent = async (eventName: string, event: Event, isScreenshotRequired: boolean, time: any, additionalData = {}) => {
+export const logEvent = async (eventType: string, event: Event, isScreenshotRequired: boolean, time: any, additionalData = {}) => {
     // 이벤트 정보 추출
-    const { x, y, width, height, xpath, hostname, pathname, url, nodeName } = extractEventInfo(event);
+    const { x, y, width, height, xpath, hostName, pathName, url, nodeName } = extractEventInfo(event);
 
     // 이벤트 정보로 해시 생성
-    const hash = await generateHash(url + pathname + xpath + eventName);
+    const hash = await generateHash(url + pathName + xpath + eventType);
 
     let screenshotBase64;
 
@@ -32,9 +32,9 @@ export const logEvent = async (eventName: string, event: Event, isScreenshotRequ
     // 로그 데이터 생성
     if (isScreenshotRequired) {
         logData = {
-            eventName,
-            hostname,
-            pathname,
+            eventType: eventType,
+            hostName,
+            pathName,
             time: time,
             x,
             y,
@@ -53,9 +53,9 @@ export const logEvent = async (eventName: string, event: Event, isScreenshotRequ
     }
     else {
         logData = {
-            eventName,
-            hostname,
-            pathname,
+            eventType: eventType,
+            hostName,
+            pathName,
             time: time,
             x,
             y,

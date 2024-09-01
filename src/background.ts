@@ -1,7 +1,6 @@
 import { LogArray, LogData, ResultData } from './interfaces/apiTypes';
 import { setTask } from './apiClient';
 import { getOSName, getBrowserName, getDeviceName } from './useAgent';
-import { LocalData } from './interfaces/localData';
 import { nowTime } from './utils/time';
 import { takeScreenshot } from './screenshot/screenshotUtils';
 import { SessionState } from './enums/sessionState';

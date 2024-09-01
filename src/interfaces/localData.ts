@@ -4,7 +4,7 @@ export interface LocalData {
   userGender: string;
   userCountry: string;
   projectId: string;
-  testId: string;
+  taskSuiteId: string;
   taskId: string;
   fragment: string;
 }
