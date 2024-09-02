@@ -159,13 +159,13 @@ async function sendlogInfos(isFinished: boolean, isSave: boolean) {
     const uploadPromises = savedInfo.map((info: any) => {
       const randomFileName = `image_${Date.now()}.jpeg`;
 
-      if (info.imageUrl != "캡쳐에러발생" && info.imageUrl) {
+      if (info.imageUrl != "screenshot capture failed" && info.imageUrl) {
         // base64 데이터 URL 형식으로 변환
         const formattedDataUrl = `data:image/jpeg;base64,${info.imageUrl}`;
         return uploadBase64ToStorage(formattedDataUrl, randomFileName)
-      } else if (info.imageUrl == "캡쳐에러발생") {
-        // imageUrl에 "캡쳐에러발생"이라는 문자열 값이 있다면 해당 값을 그대로 반환하는 Promise 생성
-        return Promise.resolve("캡쳐에러발생");
+      } else if (info.imageUrl == "screenshot capture failed") {
+        // imageUrl에 "screenshot capture failed"이라는 문자열 값이 있다면 해당 값을 그대로 반환하는 Promise 생성
+        return Promise.resolve("screenshot capture failed");
       } else {
         // 이미지 URL이 없는 경우, 빈 문자열을 반환하는 Promise 생성
         return Promise.resolve("");

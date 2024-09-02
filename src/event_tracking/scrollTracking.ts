@@ -93,11 +93,13 @@ export const endScroll = (time: any, isScrollDirectionChanged?: boolean) => {
 
             if (isScrollDirectionChanged == true) {
                 console.log(`scroll end due to scroll direction changed`);
-                scrollLogEvent('scroll', currentScroll, true, time, "scroll end due to scroll direction changed", lastScrollDirection); // 스크롤 종료 처리
+                // scrollLogEvent('scroll', currentScroll, true, time, "scroll end due to scroll direction changed", lastScrollDirection); // 스크롤 종료 처리
+                scrollLogEvent('scroll', currentScroll, true, time, "scroll end", lastScrollDirection);
             }
             else {
                 console.log(`scroll end due to other event`);
-                scrollLogEvent('scroll', currentScroll, true, time, "scroll end due to other event", lastScrollDirection); // 스크롤 종료 처리
+                // scrollLogEvent('scroll', currentScroll, true, time, "scroll end due to other event", lastScrollDirection); // 스크롤 종료 처리
+                scrollLogEvent('scroll', currentScroll, true, time, "scroll end", lastScrollDirection); // 스크롤 종료 처리
             }
         }
         lastScrollDirection = ""; // 마지막 휠 방향 변경
