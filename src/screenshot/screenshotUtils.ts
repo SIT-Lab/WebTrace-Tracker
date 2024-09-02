@@ -26,9 +26,9 @@ export async function takeScreenshotAndGetBase64() {
             // 해당 messageId에 대한 메시지만 처리
             if (request.messageId === messageId && request.action === 'sendBase64Data') {
                 try {
-                    if (request.base64Data == "캡쳐에러발생") {
+                    if (request.base64Data == "screenshot capture failed") {
                         console.log("캡쳐 도중 에러가 발생하였습니다.")
-                        resolve("캡쳐에러발생");
+                        resolve("screenshot capture failed");
                     }
                     else {
                         console.log("캡쳐한 화면에 대한 base64Data 생성하는데 성공했습니다.")
@@ -63,7 +63,7 @@ export async function takeScreenshot(message: any, sender: any) {
                 if (chrome.runtime.lastError) {
                     const errorMessage = chrome.runtime.lastError.message;
                     console.error(errorMessage);
-                    reject("캡쳐에러발생");
+                    reject("screenshot capture failed");
                 } else {
                     resolve(screenShot);
                 }
@@ -81,7 +81,7 @@ export async function takeScreenshot(message: any, sender: any) {
     } catch (error) {
         let base64Data: string; // 변수를 선언합니다.
 
-        base64Data = "캡쳐에러발생";
+        base64Data = "screenshot capture failed";
         console.log("캡쳐 도중 에러가 발생하였습니다.");
 
         if (sender.tab?.id) {
