@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Sitlab Test Tracker",
+  "name": "WebTrace Tracker",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "WebTrace Tracker",
   "icons": {
     "16": "icons/logo.png",
     "32": "icons/logo.png",
@@ -13,7 +13,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Sitlab Test Tracker",
+    "default_title": "WebTrace Tracker",
     "default_popup": "popup.html"
   },
   "permissions": [
