@@ -1,7 +1,7 @@
 {
-  "name": "sitlab-test-tracker",
+  "name": "webtrace-tracker",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "WebTrace Tracker",
   "private": true,
   "scripts": {
     "watch": "webpack --mode=development --watch --config config/webpack.config.js",

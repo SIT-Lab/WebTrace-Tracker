@@ -1,9 +1,9 @@
 {
     "appName": {
-        "message": "sitlab_test_tracker"
+        "message": "WebTrace Tracker"
     },
     "appShortName": {
-        "message": "sitlab_test_tracker"
+        "message": "WebTrace Tracker"
     },
     "appDescription": {
         "message": "record the usability test log"
