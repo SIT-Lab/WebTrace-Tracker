@@ -282,7 +282,7 @@ const getUserInfoElement = () => {
   return `
   <form>
   <div style="margin-bottom: 20px;">
-    <h6 style="color: blue;">Welcome</h6>
+    <h6 style="color: blue;">hi</h6>
     <h5 class="card-title" style="font-weight: bold;">Please enter the correct test in-formation.</h5>
   </div>
   <div class="inputbox form-group">
