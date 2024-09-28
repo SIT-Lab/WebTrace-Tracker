@@ -29,7 +29,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 });
 
 const getIdsInLocal = () => {
-  const keys = ['userId', 'userAge', 'userGender', 'userCountry', 'projectId', 'testId', 'taskId', 'fragment'];
+  const keys = ['userId', 'userAge', 'userGender', 'userCountry', 'projectId', 'taskSuiteId', 'taskId', 'fragment'];
   const result = chrome.storage.local.get(keys);
   return result;
 };
@@ -116,7 +116,7 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
     const browserName = getBrowserName();
     const deviceName = getDeviceName();
 
-    const { userId, userAge, userGender, userCountry, projectId, testId, taskId, fragment } =
+    const { userId, userAge, userGender, userCountry, projectId, taskSuiteId, taskId, fragment } =
       await getIdsInLocal();
 
     const resultData: ResultData = {
@@ -136,7 +136,7 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
     await setTask(
       { data: savedInfo, result: resultData } as LogArray,
       projectId,
-      testId,
+      taskSuiteId,
       taskId
     );
 

@@ -8,7 +8,7 @@
 WebTrace Tracker is an interaction tracking tool for web applications. The Tracker is provided as a Chrome extension and is designed to remotely monitor client-side user interactions during usability testing.
 
 The tracked data is recorded in Firebase and can be reviewed through the
-[SitLab Dashboard](https://github.com/SIT-Lab/WebTrace-Dashboard), which is designed for managing and analyzing tests.
+[WebTrace Dashboard](https://github.com/SIT-Lab/WebTrace-Dashboard), which is designed for managing and analyzing tests.
 
 ### Types of Collected Data
 
@@ -49,11 +49,6 @@ The tracked data is recorded in Firebase and can be reviewed through the
 - **userCountry**: 사용자의 국가 (예: "korea")
 - **userGender**: 사용자의 성별 (예: "man")
 - **userId**: 사용자의 ID -->
-
-<br>
-
- 
-
 
 <!-- ## 👨🏼‍💻팀원
 | **편지승**  | **허민**    |
@@ -105,36 +100,36 @@ The tracked data is recorded in Firebase and can be reviewed through the
    - The extension will be uploaded and installed in Chrome. -->
 
 ### 6. Distribute Tracker to Test Participants:
-- Once the project is built, administrator will need to distribute the necessary files to test participant.
+- Once the project is built, tester will need to distribute the necessary files to test participant.
 - The key folder to distribute is the build folder, which contains all the necessary files to run the Chrome extension.
 
 #### Instructions for Test Participants:
 
 1. Make sure that the test participants receive the build folder.
 
-2. Instruct the test participant to follow these steps to install the Chrome extension:
+2. Instruct the test participants to follow these steps to install the Chrome extension:
     - Open the Chrome browser and go to the extensions management page by typing chrome://extensions/ in the address bar.
     - Enable **Developer Mode** in the top right corner.
-    - Click on the **"Load unpacked"** button.
-    - Select the `build` folder that administrator provided to test participant.
+    - Click on the **Load unpacked** button.
+    - Select the `build` folder that tester provided to test participant.
     - The extension will be uploaded and installed in their Chrome browser.
 
 For further details, refer the test participants to the [Google Chrome Extension Guide](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world?hl=en#load-unpacked).
 
 ## Tracker Features
 
-<!-- ### For administrator
+<!-- ### For tester
 Generate the build file using the instructions in the Getting Started section, and provide it to the test participants.
 
 ### For Test participant
-WebTrace Tracker is a Chrome extension. Participants must have Chrome browser installed before the test begins. After receiving the WebTrace Tracker build file from the administrator, the application can be installed in the browser by referring to section 6 of the **Getting Started** guide. -->
+WebTrace Tracker is a Chrome extension. Participants must have Chrome browser installed before the test begins. After receiving the WebTrace Tracker build file from the tester, the application can be installed in the browser by referring to section 6 of the **Getting Started** guide. -->
 
 <p align="left" >
-  <img src="https://github.com/user-attachments/assets/0ce39e5e-5362-47b7-aef2-59f2410dab86" width="220" alt="image1" style=""/>
-
-  ### A. Enter ID
-  This is the page where you enter the IDs provided by the administrator.
-  - Enter the IDs (Project ID, Test ID, Task ID) provided by the administrator
+  <img src="https://github.com/user-attachments/assets/d34c5b76-cf54-488b-b807-47c8a04cfa56" width="220" alt="image1" style=""/>
+ 
+  ### A. Enter IDs
+  This is the page where you enter the IDs provided by the tester.
+  - Enter the IDs (Project ID, Task Suite ID, Task ID) provided by the tester
 into the Tracker
   - After entering the IDs correctly, click the Submit button to proceed to the next page
 </p>
