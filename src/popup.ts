@@ -24,8 +24,8 @@ window.onload = () => {
         const projInput = document.querySelector(
           '#project-id'
         ) as HTMLInputElement;
-        const testInput = document.querySelector(
-          '#test-id'
+        const taskSuiteInput = document.querySelector(
+          '#tasksuite-id'
         ) as HTMLInputElement;
         const taskInput = document.querySelector(
           '#task-id'
@@ -34,7 +34,7 @@ window.onload = () => {
         // 입력된 ID들이 유효한지 확인
         const isRefExist = await isRefExists(
           projInput.value,
-          testInput.value,
+          taskSuiteInput.value,
           taskInput.value
         );
 
@@ -43,7 +43,7 @@ window.onload = () => {
           // 유효한 ID라면 로컬 스토리지에 저장하고 다음 화면으로 이동
           await setIDsInLocal(
             projInput.value,
-            testInput.value,
+            taskSuiteInput.value,
             taskInput.value,
             () => toInputInfo(main)
           );
@@ -66,20 +66,20 @@ window.onload = () => {
 /**
  * 로컬 스토리지에 ID들을 저장하는 함수
  * @param {string} projId - 프로젝트 ID
- * @param {string} testId - 테스트 ID
+ * @param {string} taskSuiteId - Task Suite ID
  * @param {string} taskId - 태스크 ID
  * @param {() => void} callback - 콜백 함수
  */
 const setIDsInLocal = async (
   projId: string,
-  testId: string,
+  taskSuiteId: string,
   taskId: string,
   callback: () => void
 ) => {
   await chrome.storage.local.set(
     {
       projectId: projId,
-      testId: testId,
+      taskSuiteId: taskSuiteId,
       taskId: taskId,
       fragment: 'InputInfo',
     },
@@ -131,7 +131,7 @@ const toInputInfo = (main: Element) => {
     ) as HTMLInputElement;
     const genderInput = document.querySelector(
       '#Gender-id'
-    ) as HTMLInputElement; 
+    ) as HTMLInputElement;
     const countryInput = document.querySelector(
       '#Country-id'
     ) as HTMLInputElement;
@@ -323,8 +323,8 @@ const getUserLoginElement = () => {
       <input type="text" class="form-control" id="project-id" placeholder="Enter project ID">
     </div>
     <div class="inputbox form-group">
-      <label for="test-id" style="margin-bottom: 0;">Test ID</label>
-      <input type="text" class="form-control" id="test-id" placeholder="Enter test ID">
+      <label for="tasksuite-id" style="margin-bottom: 0;">Task Suite ID</label>
+      <input type="text" class="form-control" id="tasksuite-id" placeholder="Enter task suite ID">
     </div>
     <div class="inputbox form-group">
       <label for="task-id" style="margin-bottom: 0;">Task ID</label>
