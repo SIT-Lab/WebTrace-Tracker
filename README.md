@@ -125,13 +125,13 @@ Generate the build file using the instructions in the Getting Started section, a
 WebTrace Tracker is a Chrome extension. Participants must have Chrome browser installed before the test begins. After receiving the WebTrace Tracker build file from the tester, the application can be installed in the browser by referring to section 6 of the **Getting Started** guide. -->
 
 <p align="left" >
-  <img src="https://github.com/user-attachments/assets/d34c5b76-cf54-488b-b807-47c8a04cfa56" width="220" alt="image1" style=""/>
+  <img src="https://github.com/user-attachments/assets/e1491cff-6494-4447-848b-ab9eae3976dd" width="220" alt="image1" style=""/>
  
-  ### A. Enter IDs
-  This is the page where you enter the IDs provided by the tester.
-  - Enter the IDs (Project ID, Task Suite ID, Task ID) provided by the tester
+  ### A. Enter Session Code
+  This is the page where you enter the Session Code provided by the tester.
+  - Enter the Session Code provided by the tester
 into the Tracker
-  - After entering the IDs correctly, click the Submit button to proceed to the next page
+  - After entering the Session Code correctly, click the Submit button to proceed to the next page
 </p>
 
 <p align="left">
@@ -179,7 +179,7 @@ instead of being sent to Firebase.
 
 ## License
 
-This project is licensed under the Apache License 2.0. For more details, please refer to the  [LICENSE](LICENSE) file.
+This project is licensed under the Apache License 2.0. For more details, please refer to the [LICENSE](LICENSE) file.
 
 This project includes third-party libraries that are licensed under the Apache License 2.0. For more details, please refer to the [NOTICE](NOTICE) file.
 ```
