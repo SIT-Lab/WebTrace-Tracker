@@ -1,4 +1,5 @@
 import { isRefExists } from './apiClient';
+import { getIdsFromSessionCode } from './apiClient';
 
 window.onload = () => {
   // 로컬 스토리지에서 'fragment' 키의 값을 가져와서 초기 화면을 결정
@@ -20,37 +21,42 @@ window.onload = () => {
 
       // 'submit' 버튼 클릭 이벤트 핸들러
       submit?.addEventListener('click', async () => {
-        // info input page
-        const projInput = document.querySelector(
-          '#project-id'
-        ) as HTMLInputElement;
-        const taskSuiteInput = document.querySelector(
-          '#tasksuite-id'
-        ) as HTMLInputElement;
-        const taskInput = document.querySelector(
-          '#task-id'
-        ) as HTMLInputElement;
 
-        // 입력된 ID들이 유효한지 확인
-        const isRefExist = await isRefExists(
-          projInput.value,
-          taskSuiteInput.value,
-          taskInput.value
-        );
+        const sessionCode = (document.getElementById('session-code') as HTMLInputElement).value.trim();
 
-        console.log('isRefExist', isRefExist);
-        if (isRefExist) {
-          // 유효한 ID라면 로컬 스토리지에 저장하고 다음 화면으로 이동
-          await setIDsInLocal(
-            projInput.value,
-            taskSuiteInput.value,
-            taskInput.value,
-            () => toInputInfo(main)
-          );
-        } else {
-          alert(
-            '올바른 ID를 입력하세요. ID는 관리자에게 발급받을 수 있습니다.'
-          );
+        if (!sessionCode) {
+          alert('Please enter a Session Code.');
+          return;
+        }
+
+        try {
+          // Firestore에서 세션코드로 데이터 조회
+          const ids = await getIdsFromSessionCode(sessionCode);
+
+          if (!ids) {
+            alert('Invalid Session Code. Please check and try again.');
+            return;
+          }
+
+          console.log('Project ID:', ids.projectId);
+          console.log('Task Suite ID:', ids.taskSuiteId);
+          console.log('Task ID:', ids.taskId);
+
+          // 입력된 ID들이 유효한지 확인
+          const isRefExist = await isRefExists(ids.projectId, ids.taskSuiteId, ids.taskId);
+
+          if (isRefExist) {
+            // 유효한 ID라면 로컬 스토리지에 저장하고 다음 화면으로 이동
+            await setIDsInLocal(ids.projectId, ids.taskSuiteId, ids.taskId, () =>
+              toInputInfo(main)
+            );
+          } else {
+            //alert('올바른 ID를 입력하세요. ID는 관리자에게 발급받을 수 있습니다.');
+            alert('Invalid Session Code.');
+          }
+        } catch (error) {
+          console.error('Error processing Session Code:', error);
+          alert('An error occurred while processing the Session Code.');
         }
       });
     }
@@ -152,7 +158,7 @@ const toInputInfo = (main: Element) => {
       )
     } else {
       alert(
-        '모든 정보를 정확히 입력하세요.'
+        'Please enter all information accurately.'
       );
     }
   })
@@ -315,20 +321,12 @@ const getUserLoginElement = () => {
   return `
   <div style="margin-bottom: 20px;">
     <h5 style="color: blue;">Welcome</h5>
-    <h5 class="card-title" style="font-weight: bold;">Before the test, please enter the following information:</>
-    </div>
+    <h5 class="card-title" style="font-weight: bold;">Before the test, please enter the Session Code.</h5>
+  </div>
   <form>
     <div class="inputbox form-group">
-      <label for="project-id" style="margin-bottom: 0;">Project ID</label>
-      <input type="text" class="form-control" id="project-id" placeholder="Enter project ID">
-    </div>
-    <div class="inputbox form-group">
-      <label for="tasksuite-id" style="margin-bottom: 0;">Task Suite ID</label>
-      <input type="text" class="form-control" id="tasksuite-id" placeholder="Enter task suite ID">
-    </div>
-    <div class="inputbox form-group">
-      <label for="task-id" style="margin-bottom: 0;">Task ID</label>
-      <input type="text" class="form-control" id="task-id" placeholder="Enter task ID">
+      <label for="session-code" style="margin-bottom: 0;">Session Code</label>
+      <input type="text" class="form-control" id="session-code" placeholder="Enter Session Code">
     </div>
     <button id="submit" type="button" class="btn btn-primary">Submit</button>
   </form>
