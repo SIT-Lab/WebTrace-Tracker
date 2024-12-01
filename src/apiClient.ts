@@ -77,6 +77,35 @@ export const getLog = async (
 };
 
 /**
+ * 세션코드로 프로젝트, Task Suite, Task ID를 가져오는 함수
+ * @param {string} sessionCode - 입력받은 세션코드
+ * @returns {Promise<{ projectId: string; taskSuiteId: string; taskId: string } | null>}
+ */
+export const getIdsFromSessionCode = async (
+  sessionCode: string
+): Promise<{ projectId: string; taskSuiteId: string; taskId: string } | null> => {
+  try {
+    const docRef = doc(db, `sessionCode/${sessionCode}`);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      return {
+        projectId: data.projectId,
+        taskSuiteId: data.taskSuiteId,
+        taskId: data.taskId,
+      };
+    } else {
+      console.error('No document found for the given Session Code.');
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching data from session Code:', error);
+    return null;
+  }
+};
+
+/**
  * 특정 문서가 Firestore에 존재하는지 확인하는 함수
  * @param {string} projectId - 프로젝트 ID
  * @param {string} taskSuiteId - task suite ID
